@@ -7,6 +7,9 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import HomePage from './pages/home';
+import ProductPage from './pages/product';
+import OrderPage from './pages/order';
 
 const router = createBrowserRouter([
   {
@@ -14,18 +17,20 @@ const router = createBrowserRouter([
     element: (
       <div>
         <App />
-        <h1>Hello World</h1>
-        <Link to="about">About Us</Link>
       </div>
     ),
     children: [
       {
-        path: "about",
-        element: <div>About</div>,
+        index: true,
+        element: <HomePage />
       },
       {
-        path: "new",
-        element: <div>New</div>,
+        path: "/product",
+        element: <ProductPage />,
+      },
+      {
+        path: "/order",
+        element: <OrderPage />,
       },
     ]
   },

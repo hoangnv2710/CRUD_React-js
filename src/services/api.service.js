@@ -2,9 +2,14 @@ import axiosInstance from './axios.customize'
 
 const getUserById = async (id) => {
 
-    const response = await axiosInstance.get(`/v1/api/users/${id}`);
+    const res = await axiosInstance.get(`/users/${id}`);
 
-    return response;
+    return res;
 }
 
-export { getUserById }
+const getAllProduct = async () => {
+    const res = await axiosInstance.get('/products');
+    return res
+}
+
+export { getUserById, getAllProduct }
