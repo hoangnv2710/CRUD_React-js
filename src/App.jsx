@@ -3,6 +3,7 @@ import Header from './components/layout/header'
 import './styles/global.css'
 import './styles/app.css'
 import { getUserById } from './services/api.service';
+import SlideBar from './components/layout/slidebar';
 
 const App = () => {
 
@@ -11,7 +12,11 @@ const App = () => {
   return (
     <div id="app">
       <Header />
-      <Outlet />
+      <div className="app-container">
+        <SlideBar />
+        <Outlet />
+      </div>
+
     </div>
   )
 }
