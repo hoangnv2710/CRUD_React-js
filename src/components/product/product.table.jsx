@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { getAllProduct } from "../../services/api.service";
 import React from 'react';
-import { Space, Table, Tag } from 'antd';
+import { Button, Space, Table, Tag } from 'antd';
 
 const columns = [
     {
         title: 'Product name',
         dataIndex: 'name',
         key: 'name',
-        // render: text => <a>{text}</a>,
     },
     {
         title: 'Price',
@@ -28,11 +27,10 @@ const columns = [
     {
         title: 'Action',
         key: 'action',
-        render: (_, record) => (
-            <Space size="middle">
-                <a>Invite {record.name}</a>
-                <a>Delete</a>
-            </Space>
+        render: () => (
+            <Button>
+
+            </Button>
         ),
     },
 ];

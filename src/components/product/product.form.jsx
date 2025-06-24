@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, Input, InputNumber, Modal } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 import { useEffect } from 'react';
+import { postCreateProduct } from '../../services/api.service';
+
 
 const ProductForm = () => {
     const [name, setName] = useState('');
@@ -32,6 +34,14 @@ const ProductForm = () => {
     }
 
     const submitForm = () => {
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("price", price);
+        formData.append("quantity", quantity);
+        formData.append("description", description);
+        formData.append("category", category);
+        formData.append("image", selectedFile);
+        postCreateProduct(formData);
         resetAndCloseModal();
     };
     const resetAndCloseModal = () => {
@@ -44,8 +54,6 @@ const ProductForm = () => {
         setSelectedFile(undefined);
         setPreview(undefined);
     };
-
-
 
     return (<div className='form-container'>
         <Button type="primary" onClick={() => setIsModalOpen(true)}>

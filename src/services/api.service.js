@@ -12,4 +12,12 @@ const getAllProduct = async () => {
     return res
 }
 
+export const postCreateProduct = async (formdata) => {
+    console.log("uploading", formdata);
+    const headers = { 'Content-Type': 'multipart/form-data' };
+    const res = await axiosInstance.post('/products', formdata, { headers })
+    console.log(res);
+    return res;
+}
+
 export { getUserById, getAllProduct }
