@@ -30,7 +30,8 @@ const ProductForm = () => {
             setSelectedFile(undefined)
             return
         }
-        setSelectedFile(e.target.files[0])
+        setSelectedFile(e.target.files[0]);
+        e.target.value = null;
     }
 
     const submitForm = () => {
@@ -51,6 +52,7 @@ const ProductForm = () => {
         setDescription('');
         setQuantity(0);
         setCategory('');
+        if (preview) URL.revokeObjectURL(preview);
         setSelectedFile(undefined);
         setPreview(undefined);
     };
